@@ -33,8 +33,17 @@ let rule3 = new RRule({
   dtstart: new Date(Date.UTC(2021, 9, 29, 13, 0, 0)),
   until: new Date(Date.UTC(2021, 9, 29, 13, 30, 0)),
 });
-
-// remove this rule from rule set;
 rruleSet.exrule(rule3);
+let rule4 = new RRule({
+    freq: RRule.MINUTELY,
+    dtstart: new Date(Date.UTC(2021, 9, 29, 13, 0, 0)),
+    until: new Date(Date.UTC(2021, 9, 29, 13, 15, 0)),
+  });
+// remove this rule from rule set;
+rruleSet.rrule(rule4);
 // Update ruleset string to db
 console.log(rruleSet.toString());
+console.log('/////////////////////');
+console.log(rruleSet.rrules());
+console.log('/////////////////////');
+console.log(rruleSet.exrules());
